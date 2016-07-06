@@ -1,5 +1,15 @@
+import /init.hi6210sft.usb.rc
+import /init.environ.rc
+import /init.connectivity.hi110x.rc
+import /init.platform.rc
+import /init.extmodem.rc
+import /init.audio.rc
 import /init.tee.rc
-
+import /init.trace.rc
+import /init.manufacture.rc
+import /init.hisi.rc
+import /init.5801.rc
+import /init.post-fs-data.rc
 
 on early-boot
     symlink /sdcard /mnt/sdcard
@@ -12,12 +22,14 @@ on charger
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor optdemand
 
 on fs
+    loglevel 9
+	
     setprop ro.crypto.fuse_sdcard true
     symlink /splash2/fac_log /data/log/fac_log
     mount ext4 /dev/block/mmcblk0p34 /cache nosuid nodev noatime wait crypt discard,noauto_da_alloc,data=ordered,user_xattr,discard,barrier=1
 	
     wait /dev/block/mmcblk0p38
-    mount ext4 /dev/block/mmcblk0p38 /system ro
+    mount ext4 /dev/block/mmcblk0p38 /system rw
 
     wait /dev/block/mmcblk0p40
     mount_all /fstab.${ro.hardware}
@@ -84,7 +96,7 @@ on init
 
     symlink /splash2 /log
 
-    write /proc/sys/kernel/dmesg_restrict 1
+#    write /proc/sys/kernel/dmesg_restrict 1
 	
     chown system system /dev/memsetdev
     chmod 660 /dev/memsetdev
@@ -278,10 +290,10 @@ on boot
     chown system system /sys/touchscreen/status
 
 
-    write /proc/sys/kernel/hung_task_panic 1
-    write /proc/sys/kernel/hung_task_timeout_secs 120
-    write /sys/kernel/hungtask/monitorlist "whitelist,system_server,surfaceflinger"
-    write /sys/kernel/hungtask/enable "on"
+#    write /proc/sys/kernel/hung_task_panic 1
+#    write /proc/sys/kernel/hung_task_timeout_secs 120
+#    write /sys/kernel/hungtask/monitorlist "whitelist,system_server,surfaceflinger"
+#    write /sys/kernel/hungtask/enable "on"
 
      write /proc/sys/net/core/rps_sock_flow_entries 0
      write /sys/class/net/rmnet0/queues/rx-0/rps_flow_cnt 0
@@ -299,6 +311,10 @@ on boot
 	 
     write /sys/block/zram0/disksize 268435456
     swapon_all fstab.hi6210sft
+
+service oeminfo_nvm /system/bin/oeminfo_nvm_server
+    class core
+    ioprio rt 4
 
 on property:ro.runmode=*
     start ccorecat

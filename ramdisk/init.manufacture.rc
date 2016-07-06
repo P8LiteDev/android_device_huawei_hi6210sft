@@ -91,9 +91,7 @@ service atcmdserver  /system/bin/atcmdserver
 
 service oeminfo_nvm /sbin/oeminfo_nvm_server
     class core
-    critical 
     ioprio rt 4
-    seclabel u:r:oeminfo_nvm:s0
 
 service diagserver /system/bin/diagserver
     class main

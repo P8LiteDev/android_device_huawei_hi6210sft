@@ -1,22 +1,7 @@
-
-import /init.environ.rc
 import /init.usb.rc
 import /init.${ro.hardware}.rc
 import /init.${ro.zygote}.rc
-
-import /init.hisi.rc
-
-import /init.audio.rc
-import /init.connectivity.rc
 import /init.device.rc
-import /init.extmodem.rc
-import /init.manufacture.rc
-import /init.performance.rc
-import /init.platform.rc
-import /init.protocol.rc
-import /init.trace.rc
-import /init.${ro.boardid.product}.rc
-import /init.post-fs-data.rc
 
 on early-init
     write /proc/1/oom_score_adj -1000
@@ -574,7 +559,8 @@ service filebackup /system/bin/filebackup
 service media /system/bin/mediaserver
     class main
     user media
-    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm system dsm
+    group audio inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm system dsm
+#    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm system dsm
     ioprio rt 4
 
 service defaultcrypto /system/bin/vdc --wait cryptfs mountdefaultencrypted
