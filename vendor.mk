@@ -161,6 +161,42 @@ PRODUCT_COPY_FILES += \
 		vendor/lib/libHwExtendedExtractor.so:system/lib/libHwExtendedExtractor.so
 
 
+#Wifi
+PRODUCT_COPY_FILES += \
+		vendor/vendor/firmware/4343A0_001.001.034.0056.0193_ORC.hcd:system/vendor/firmware/4343A0_001.001.034.0056.0193_ORC.hcd \
+		vendor/vendor/firmware/BCM4334B0_002.001.013.1554.1613_RC.hcd:system/vendor/firmware/BCM4334B0_002.001.013.1554.1613_RC.hcd \
+		vendor/vendor/firmware/fw_bcm4343s_apsta_hw.bin:system/vendor/firmware/fw_bcm4343s_apsta_hw.bin \
+		vendor/vendor/firmware/fw_bcm4343s_hw.bin:system/vendor/firmware/fw_bcm4343s_hw.bin \
+		vendor/vendor/firmware/fw_bcm4343s_p2p_hw.bin:system/vendor/firmware/fw_bcm4343s_p2p_hw.bin \
+		vendor/vendor/firmware/fw_bcm4343s_test_hw_apsta.bin:system/vendor/firmware/fw_bcm4343s_test_hw_apsta.bin \
+		vendor/etc/wifi/hostapd_hisi.conf:system/etc/wifi/hostapd_hisi.conf \
+		vendor/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+		vendor/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+		vendor/etc/wifi/wpa_supplicant_hisi.conf:system/etc/wifi/wpa_supplicant_hisi.conf \
+		vendor/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+		vendor/lib/libwifipro.so:system/lib/libwifipro.so \
+		vendor/lib64/libwifipro.so:system/lib64/libwifipro.so \
+		vendor/lib/libwpa_client.so:system/lib/libwpa_client.so \
+		vendor/lib64/libwpa_client.so:system/lib64/libwpa_client.so \
+		vendor/lib/libwpa_client_hisi.so:system/lib/libwpa_client_hisi.so \
+		vendor/lib64/libwpa_client_hisi.so:system/lib64/libwpa_client_hisi.so \
+		vendor/lib/libvio.so:system/lib/libvio.so \
+		vendor/lib64/libvio.so:system/lib64/libvio.so \
+		vendor/lib/libhardware_legacy.so:system/lib/libhardware_legacy.so \
+		vendor/lib64/libhardware_legacy.so:system/lib64/libhardware_legacy.so \
+		vendor/lib/libhardware_legacy_bcm.so:system/lib/libhardware_legacy_bcm.so \
+		vendor/lib64/libhardware_legacy_bcm.so:system/lib64/libhardware_legacy_bcm.so \
+		vendor/lib/libhardware_legacy_hisi.so:system/lib/libhardware_legacy_hisi.so \
+		vendor/lib64/libhardware_legacy_hisi.so:system/lib64/libhardware_legacy_hisi.so \
+		vendor/bin/wpa_cli:system/bin/wpa_cli \
+		vendor/bin/wpa_cli_hisi:system/bin/wpa_cli_hisi \
+		vendor/bin/wpa_supplicant:system/bin/wpa_supplicant \
+		vendor/bin/wpa_supplicant_hisi:system/bin/wpa_supplicant_hisi
+
+
+
+
+
 #Hardware Packages
 PRODUCT_PACKAGES += \
 audio.primary.default \
