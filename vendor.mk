@@ -98,7 +98,6 @@ PRODUCT_COPY_FILES += \
 
 #OMX and k3 codecs
 PRODUCT_COPY_FILES += \
-		vendor/lib/lib_iomxcodec_40.so:system/lib/lib_iomxcodec_40.so \
 		vendor/lib/lib_k3_ffmpeg.so:system/lib/lib_k3_ffmpeg.so \
 		vendor/lib64/lib_k3_ffmpeg.so:system/lib64/lib_k3_ffmpeg.so \
 		vendor/lib/lib_k3_omx_avc.so:system/lib/lib_k3_omx_avc.so \
@@ -117,6 +116,9 @@ PRODUCT_COPY_FILES += \
 		vendor/lib64/lib_k3_omx_vp8.so:system/lib64/lib_k3_omx_vp8.so \
 		vendor/lib/lib_k3_omxcore.so:system/lib/lib_k3_omxcore.so \
 		vendor/lib64/lib_k3_omxcore.so:system/lib64/lib_k3_omxcore.so
+
+# Remove for the moment lib_iomxcodec_40 because not found in sources
+#		vendor/lib/lib_iomxcodec_40.so:system/lib/lib_iomxcodec_40.so \
 
 #Audio Service
 PRODUCT_COPY_FILES += \
